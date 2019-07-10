@@ -47,13 +47,11 @@ public class AuthController {
     }
 
     @DeleteMapping(path = "/logout")
-    @CrossOrigin(origins = "http://localhost:3000/")
     public ResponseEntity<?> logoutUser(@CurrentUser UserPrincipal userPrincipal) {
         return ResponseEntity.ok(new AuthControllerResponse(true, "User logged out successfully"));
     }
 
     @PostMapping(path = "/login", consumes = "application/json", produces = "application/json")
-    @CrossOrigin(origins = "http://localhost:3000/")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
@@ -65,7 +63,6 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signupRequest) {
         if (userRepository.existsByEmail(signupRequest.getEmail()))
         {
