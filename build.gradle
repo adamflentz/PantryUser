@@ -39,6 +39,7 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-security'
 	compile 'org.springframework.security:spring-security-oauth2-client'
 	compile 'org.springframework.security:spring-security-test'
+    compile 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.6.RELEASE'
 	compile 'io.jsonwebtoken:jjwt-api:0.10.5'
 
     runtime 'io.jsonwebtoken:jjwt-impl:0.10.5',

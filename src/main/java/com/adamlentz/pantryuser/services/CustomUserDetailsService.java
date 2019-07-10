@@ -35,4 +35,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userRepository.findByUserId(id).orElseThrow(() -> new UsernameNotFoundException("User not found with id: " + id));
         return UserPrincipal.create(user);
     }
+
+    @Transactional
+    public Boolean deleteUserById(Long id) throws UsernameNotFoundException {
+        return userRepository.deleteByUserId(id);
+    }
 }
